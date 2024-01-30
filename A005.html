@@ -1,13 +1,49 @@
 <!-- CODE = #A005 -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>NETBYZZ A005</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css">
-    <style>
-      body{
+<head>
+  <title>NETBYZZ A005</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #212121;
+      margin: 0;
+      padding: 0;
+    }
+
+    .Netbyzz {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      width: 50%; /* Adjust the size of the logo */
+      opacity: 3%;
+    }
+
+    .container {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      height: 20vw; /* Adjust the size of the container for mobile */
+      width: 20vw;  /* Adjust the size of the container for mobile */
+    }
+
+    .pl {
+      width: 100%;
+      height: 100%;
+    }
+
+    .pl__ring {
+      stroke-linecap: round;
+    }
+
+    
+    body{
         background-color: #212121;
       }
       .Netbyzz {
@@ -233,12 +269,26 @@
     stroke-dashoffset: -440;
   }
 }
+    /* Rest of your existing styles... */
 
-    </style>
-  </head>
-  <body>
-    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3niQHzllfpJWl9Iss3ArAI7HSP4wA-vWMv-oN6X5ZUfZBiM4g9p92gO4mxJwExsrpAtRPLfb8WyFnOpjKWwSShfW0ohM0i3eoocCEF4bg0ppj0QcdOPy77suge-W_u-Dde5wIM4YbO0RQ39uXwpRB5H8yJBir9MWjJ_fO3bMhOdOYrGzBlWmI223Urew/s1000/Netbyzz4.png" alt="Netbyzz Logo" class="Netbyzz">
-    <div class="container">
+    /* Media query for smaller screens (e.g., mobile devices) */
+    @media (max-width: 600px) {
+      .Netbyzz {
+        width: 80%; /* Adjust the size of the logo for mobile */
+      }
+
+      .container {
+        height: 30vw; /* Adjust the size of the container for smaller screens */
+        width: 30vw;  /* Adjust the size of the container for smaller screens */
+      }
+
+      /* Add any other styles for smaller screens here */
+    }
+  </style>
+</head>
+<body>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3niQHzllfpJWl9Iss3ArAI7HSP4wA-vWMv-oN6X5ZUfZBiM4g9p92gO4mxJwExsrpAtRPLfb8WyFnOpjKWwSShfW0ohM0i3eoocCEF4bg0ppj0QcdOPy77suge-W_u-Dde5wIM4YbO0RQ39uXwpRB5H8yJBir9MWjJ_fO3bMhOdOYrGzBlWmI223Urew/s1000/Netbyzz4.png" alt="Netbyzz Logo" class="Netbyzz">
+  <div class="container">
     <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
       <circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
       <circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
@@ -246,5 +296,5 @@
       <circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
     </svg>
   </div>
-  </body>
+</body>
 </html>
