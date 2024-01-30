@@ -7,125 +7,143 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css">
     <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
       .Netbyzz {
-      margin-left: 0px;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-      width: 50%; /* Adjust the size of the logo */
-      opacity: 5%;
+        margin-left: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        width: 50%; /* Adjust the size of the logo */
+        opacity: 5%;
       }
+
       .container {
-  position: absolute;
-  top: 50%;
-  left: 45%;
-  border-radius: 50%;
-  height: 96px;
-  width: 96px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
       }
+
       .button {
-  position: relative;
-  padding: 25px 55px;
-  border-radius: 6px;
-  border: none;
-  color: #fff;
-  cursor: pointer;
-  background-color: #7d2ae8;
-  transition: all 0.2s ease;
-  font-size: medium;
-}
+        position: relative;
+        padding: 15px 30px;
+        border-radius: 6px;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        background-color: #7d2ae8;
+        transition: all 0.2s ease;
+        font-size: medium;
+      }
 
-.button:active {
-  transform: scale(0.96);
-}
+      .button:active {
+        transform: scale(0.96);
+      }
 
-.button:before,
-.button:after {
-  position: absolute;
-  content: "";
-  width: 150%;
-  left: 50%;
-  height: 100%;
-  transform: translateX(-50%);
-  z-index: -1000;
-  background-repeat: no-repeat;
-}
+      .button:before,
+      .button:after {
+        position: absolute;
+        content: "";
+        width: 150%;
+        left: 50%;
+        height: 100%;
+        transform: translateX(-50%);
+        z-index: -1000;
+        background-repeat: no-repeat;
+      }
 
-.button:hover:before {
-  top: -70%;
-  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
-  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
-    10% 10%, 18% 18%;
-  background-position: 50% 120%;
-  animation: greentopBubbles 0.6s ease;
-}
+      .button:hover:before {
+        top: -70%;
+        background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+        background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+          10% 10%, 18% 18%;
+        background-position: 50% 120%;
+        animation: greentopBubbles 0.6s ease;
+      }
 
-@keyframes greentopBubbles {
-  0% {
-    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
-      40% 90%, 55% 90%, 70% 90%;
-  }
+      @keyframes greentopBubbles {
+        0% {
+          background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+            40% 90%, 55% 90%, 70% 90%;
+        }
 
-  50% {
-    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
-      50% 50%, 65% 20%, 90% 30%;
-  }
+        50% {
+          background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+            50% 50%, 65% 20%, 90% 30%;
+        }
 
-  100% {
-    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
-      50% 40%, 65% 10%, 90% 20%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
-}
+        100% {
+          background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+            50% 40%, 65% 10%, 90% 20%;
+          background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        }
+      }
 
-.button:hover::after {
-  bottom: -70%;
-  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
-    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
-  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
-  background-position: 50% 0%;
-  animation: greenbottomBubbles 0.6s ease;
-}
+      .button:hover::after {
+        bottom: -70%;
+        background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+          radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+        background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+        background-position: 50% 0%;
+        animation: greenbottomBubbles 0.6s ease;
+      }
 
-@keyframes greenbottomBubbles {
-  0% {
-    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
-      70% -10%, 70% 0%;
-  }
+      @keyframes greenbottomBubbles {
+        0% {
+          background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+            70% -10%, 70% 0%;
+        }
 
-  50% {
-    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
-      105% 0%;
-  }
+        50% {
+          background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+            105% 0%;
+        }
 
-  100% {
-    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
-      110% 10%;
-    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-  }
-}
+        100% {
+          background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+            110% 10%;
+          background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .Netbyzz {
+          width: 70%;
+        }
+
+        .button {
+          padding: 10px 20px;
+          font-size: small;
+        }
+      }
     </style>
   </head>
   <body>
     <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXeCuyCrXqUp_lKKOQ23p0Gf-6lqEykPMotKnJmhARRZ8YNAAjt-RI-Vb9XXhyXdrTQYjxMcGL9m3nHKpxSyF287emuYWYUxGBc9LJkMgzsjBUZ3x4O0o_W7NtbiZReTFcqU8iIx_AGf-FweRHztB5-e0eXDiHTXUcvS35VcIsnlwMAsFNHk_r_DUjUKo/s1000/Netbyzz3.png" alt="Netbyzz Logo" class="Netbyzz">
     <div class="container">
       <button class="button">
-      Button
+        Button
       </button>
     </div>
   </body>
