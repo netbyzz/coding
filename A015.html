@@ -1,0 +1,76 @@
+<!-- CODE = #A015 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETBYZZ A015</title>
+  <style>
+    .Netbyzz {
+      position: absolute;
+      top: 54%;
+      left: 51%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 15%; /* Adjust the size of the logo */
+      opacity: 15%;
+    }
+    body {
+      background: #eee;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    div {
+      z-index: 1;
+      position: relative;
+      width: 300px; /* Set the desired size directly */
+      height: 300px; /* Set the desired size directly */
+    }
+
+    div img {
+      width: 300px; /* Set the desired size directly */
+      height: 300px; /* Set the desired size directly */
+      box-shadow: 0 0 10px #0c0c0c;
+      border: 1px solid #ccc;
+    }
+
+    div:before,
+    div:after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      content: "";
+      display: block;
+      margin: 0;
+      padding: 0;
+      transform: rotate(45deg);
+    }
+
+    div:before {
+      border-left: 20px solid red; /* Set the desired border size and color directly */
+      border-right: 20px solid red; /* Set the desired border size and color directly */
+      z-index: -1;
+      width: 260px; /* Adjust based on the border size */
+      height: 300px; /* Set the desired size directly */
+    }
+
+    div:after {
+      border-top: 20px solid red; /* Set the desired border size and color directly */
+      border-bottom: 20px solid red; /* Set the desired border size and color directly */
+      z-index: 1;
+      width: 300px; /* Set the desired size directly */
+      height: 260px; /* Adjust based on the border size */
+    }
+  </style>
+</head>
+<body>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9DHYoUAJWbuMhteUDEwZLy0CwMoc5GGYkE5GcdUw9HfIZMFn-roZboroOT9cquCP0LT69wlZswyRdaoZDSb91V-9LNhOjEZpgRH9YdfjCMz0g3q8oDSUG9G_3JDMH3xFx5ezKF0BwTlfpQzB7gE2ZYps3JQTVfcP_FtLvmd8Z-2RyVvYu2P8xtsC25W8/s600/Netbyzz.png" alt="Netbyzz Logo" class="Netbyzz">
+  <div>
+    <img src="https://picsum.photos/200" alt="image">
+  </div>
+</body>
+</html>
