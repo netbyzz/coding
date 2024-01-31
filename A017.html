@@ -1,0 +1,205 @@
+<!-- CODE = #A017 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETBYZZ A017</title>
+  <style>
+    @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,300);
+
+    body{
+      background-color: #212121;
+    }
+:root {
+    --brown: #1253c8;
+}
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+}
+
+.center {
+    position: absolute;
+    top: 50px;
+    left: 40px;
+    height: 299px;
+    width: 320px;
+    background: #fff;
+    border-radius: 3px;
+    overflow: hidden;
+    box-shadow: 10px 10px 15px 0 rgba(249, 249, 249, 0.3);
+}
+
+.profile {
+    float: left;
+    width: 200px;
+    height: 320px;
+    text-align: center;
+}
+
+.profile .image {
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 38px auto 0 auto;
+}
+
+.profile .image .circle-1 {
+    position: absolute;
+    box-sizing: border-box;
+    width: 76px;
+    height: 76px;
+    top: -3px;
+    left: -3px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--brown) var(--brown) var(--brown) transparent;
+    border-radius: 50%;
+    transition: all 1.5s ease-in-out;
+}
+
+.profile .image .circle-2 {
+    position: absolute;
+    box-sizing: border-box;
+    width: 82px;
+    height: 82px;
+    top: -6px;
+    left: -6px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: var(--brown) transparent var(--brown) var(--brown);
+    border-radius: 50%;
+    transition: all 1.5s ease-in-out;
+}
+
+.profile .image img {
+    display: block;
+    border-radius: 50%;
+    background: #F5E8DF;
+}
+
+.profile .image:hover .circle-1 {
+    transform: rotate(360deg);
+}
+
+.profile .image:hover .circle-2 {
+    transform: rotate(-360deg);
+}
+
+.profile .name {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 20px;
+}
+
+.profile .job {
+    font-size: 11px;
+    line-height: 15px;
+}
+
+.profile .actions {
+    margin-top: 33px;
+}
+
+.profile .actions .btn {
+    display: block;
+    width: 120px;
+    height: 30px;
+    margin: 0 auto 10px auto;
+    background: none;
+    border: 1px solid var(--brown);
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: 600;
+    box-sizing: border-box;
+    transition: all .3s ease-in-out;
+    color: var(--brown);
+}
+
+.profile .actions .btn:hover {
+    background: var(--brown);
+    color: #fff;
+}
+
+.stats {
+    float: left;
+}
+
+.stats .box {
+    box-sizing: border-box;
+    width: 120px;
+    height: 99px;
+    background: #F5E8DF;
+    text-align: center;
+    padding-top: 28px;
+    transition: all .4s ease-in-out;
+}
+
+.stats .box:hover {
+    background: #E1CFC2;
+    cursor: pointer;
+}
+
+.stats .box:nth-child(2) {
+    margin: 1px 0;
+}
+
+.stats span {
+    display: block;
+}
+
+.stats .value {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.stats .parameter {
+    font-size: 11px;
+}
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="center">
+      
+      <div class="profile">
+        <div class="image">
+          <div class="circle-1"></div>
+          <div class="circle-2"></div>
+          <img src="https://picsum.photos/200" width="70" height="70" alt="Image">
+        </div>
+        
+        <div class="name">Netbyzz</div>
+        <div class="job">Digital Marketing</div>
+        
+        <div class="actions">
+          <button class="btn">Follow</button>
+          <button class="btn">Message</button>
+        </div>
+      </div>
+      
+      <div class="stats">
+        <div class="box">
+          <span class="value">26</span>
+          <span class="parameter">Posts</span>
+        </div>
+        <div class="box">
+          <span class="value">1.6K</span>
+          <span class="parameter">Likes</span>
+        </div>
+        <div class="box">
+          <span class="value">1.2K</span>
+          <span class="parameter">Follower</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
