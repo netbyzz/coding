@@ -1,51 +1,11 @@
 <!-- CODE = #A005 -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>NETBYZZ A005</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: #212121;
-      margin: 0;
-      padding: 0;
-    }
-
-    .Netbyzz {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: -1;
-      width: 50%; /* Adjust the size of the logo */
-      opacity: 3%;
-    }
-
-    .container {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      border-radius: 50%;
-      height: 20vw; /* Adjust the size of the container for mobile */
-      width: 20vw;  /* Adjust the size of the container for mobile */
-    }
-
-    .pl {
-      width: 100%;
-      height: 100%;
-    }
-
-    .pl__ring {
-      stroke-linecap: round;
-    }
-
-    
-    body{
-        background-color: #212121;
-      }
+  <head>
+    <title>NETBYZZ A005</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
       .Netbyzz {
       margin-left: 0px;
       position: absolute;
@@ -54,247 +14,118 @@
       transform: translate(-50%, -50%);
       z-index: -1;
       width: 50%; /* Adjust the size of the logo */
-      opacity: 3%;
+      opacity: 5%;
       }
       .container {
   position: absolute;
-  top: 45%;
-  left: 47%;
+  top: 50%;
+  left: 45%;
   border-radius: 50%;
   height: 96px;
   width: 96px;
       }
-
-      .pl {
-  width: 6em;
-  height: 6em;
+      .button {
+  position: relative;
+  padding: 25px 55px;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #7d2ae8;
+  transition: all 0.2s ease;
+  font-size: medium;
 }
 
-.pl__ring {
-  animation: ringA 2s linear infinite;
+.button:active {
+  transform: scale(0.96);
 }
 
-.pl__ring--a {
-  stroke: #f42f25;
+.button:before,
+.button:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
 }
 
-.pl__ring--b {
-  animation-name: ringB;
-  stroke: #f49725;
+.button:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #7d2ae8 20%, transparent 30%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
 }
 
-.pl__ring--c {
-  animation-name: ringC;
-  stroke: #255ff4;
-}
-
-.pl__ring--d {
-  animation-name: ringD;
-  stroke: #f42582;
-}
-
-/* Animations */
-@keyframes ringA {
-  from, 4% {
-    stroke-dasharray: 0 660;
-    stroke-width: 20;
-    stroke-dashoffset: -330;
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
   }
 
-  12% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -335;
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
   }
 
-  32% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -595;
-  }
-
-  40%, 54% {
-    stroke-dasharray: 0 660;
-    stroke-width: 20;
-    stroke-dashoffset: -660;
-  }
-
-  62% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -665;
-  }
-
-  82% {
-    stroke-dasharray: 60 600;
-    stroke-width: 30;
-    stroke-dashoffset: -925;
-  }
-
-  90%, to {
-    stroke-dasharray: 0 660;
-    stroke-width: 20;
-    stroke-dashoffset: -990;
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
 
-@keyframes ringB {
-  from, 12% {
-    stroke-dasharray: 0 220;
-    stroke-width: 20;
-    stroke-dashoffset: -110;
-  }
-
-  20% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -115;
-  }
-
-  40% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -195;
-  }
-
-  48%, 62% {
-    stroke-dasharray: 0 220;
-    stroke-width: 20;
-    stroke-dashoffset: -220;
-  }
-
-  70% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -225;
-  }
-
-  90% {
-    stroke-dasharray: 20 200;
-    stroke-width: 30;
-    stroke-dashoffset: -305;
-  }
-
-  98%, to {
-    stroke-dasharray: 0 220;
-    stroke-width: 20;
-    stroke-dashoffset: -330;
-  }
+.button:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #7d2ae8 15%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%),
+    radial-gradient(circle, #7d2ae8 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
 }
 
-@keyframes ringC {
-  from {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: 0;
+@keyframes greenbottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+      70% -10%, 70% 0%;
   }
 
-  8% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -5;
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+      105% 0%;
   }
 
-  28% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -175;
-  }
-
-  36%, 58% {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -220;
-  }
-
-  66% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -225;
-  }
-
-  86% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -395;
-  }
-
-  94%, to {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -440;
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+      110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
   }
 }
-
-@keyframes ringD {
-  from, 8% {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: 0;
-  }
-
-  16% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -5;
-  }
-
-  36% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -175;
-  }
-
-  44%, 50% {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -220;
-  }
-
-  58% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -225;
-  }
-
-  78% {
-    stroke-dasharray: 40 400;
-    stroke-width: 30;
-    stroke-dashoffset: -395;
-  }
-
-  86%, to {
-    stroke-dasharray: 0 440;
-    stroke-width: 20;
-    stroke-dashoffset: -440;
-  }
-}
-    /* Rest of your existing styles... */
-
-    /* Media query for smaller screens (e.g., mobile devices) */
-    @media (max-width: 600px) {
-      .Netbyzz {
-        width: 80%; /* Adjust the size of the logo for mobile */
-      }
-
-      .container {
-        height: 30vw; /* Adjust the size of the container for smaller screens */
-        width: 30vw;  /* Adjust the size of the container for smaller screens */
-      }
-
-      /* Add any other styles for smaller screens here */
-    }
-  </style>
-</head>
-<body>
-  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3niQHzllfpJWl9Iss3ArAI7HSP4wA-vWMv-oN6X5ZUfZBiM4g9p92gO4mxJwExsrpAtRPLfb8WyFnOpjKWwSShfW0ohM0i3eoocCEF4bg0ppj0QcdOPy77suge-W_u-Dde5wIM4YbO0RQ39uXwpRB5H8yJBir9MWjJ_fO3bMhOdOYrGzBlWmI223Urew/s1000/Netbyzz4.png" alt="Netbyzz Logo" class="Netbyzz">
-  <div class="container">
-    <svg class="pl" width="240" height="240" viewBox="0 0 240 240">
-      <circle class="pl__ring pl__ring--a" cx="120" cy="120" r="105" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 660" stroke-dashoffset="-330" stroke-linecap="round"></circle>
-      <circle class="pl__ring pl__ring--b" cx="120" cy="120" r="35" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 220" stroke-dashoffset="-110" stroke-linecap="round"></circle>
-      <circle class="pl__ring pl__ring--c" cx="85" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
-      <circle class="pl__ring pl__ring--d" cx="155" cy="120" r="70" fill="none" stroke="#000" stroke-width="20" stroke-dasharray="0 440" stroke-linecap="round"></circle>
-    </svg>
-  </div>
-</body>
+    </style>
+  </head>
+  <body>
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXeCuyCrXqUp_lKKOQ23p0Gf-6lqEykPMotKnJmhARRZ8YNAAjt-RI-Vb9XXhyXdrTQYjxMcGL9m3nHKpxSyF287emuYWYUxGBc9LJkMgzsjBUZ3x4O0o_W7NtbiZReTFcqU8iIx_AGf-FweRHztB5-e0eXDiHTXUcvS35VcIsnlwMAsFNHk_r_DUjUKo/s1000/Netbyzz3.png" alt="Netbyzz Logo" class="Netbyzz">
+    <div class="container">
+      <button class="button">
+      Button
+      </button>
+    </div>
+  </body>
 </html>
