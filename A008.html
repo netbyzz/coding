@@ -1,0 +1,71 @@
+<!-- CODE = #A008 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETBYZZ A008</title>
+  <style>
+.Netbyzz {
+      margin-left: 0px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      width: 50%; /* Adjust the size of the logo */
+      opacity: 2%;
+      }
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #212121;
+}
+
+.menu-icon {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+}
+
+.bar {
+  width: 30px;
+  height: 4px;
+  background-color: #959595;
+  transition: 0.3s ease;
+}
+
+.menu-icon.open .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.menu-icon.open .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+  </style>
+</head>
+<body>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3niQHzllfpJWl9Iss3ArAI7HSP4wA-vWMv-oN6X5ZUfZBiM4g9p92gO4mxJwExsrpAtRPLfb8WyFnOpjKWwSShfW0ohM0i3eoocCEF4bg0ppj0QcdOPy77suge-W_u-Dde5wIM4YbO0RQ39uXwpRB5H8yJBir9MWjJ_fO3bMhOdOYrGzBlWmI223Urew/s1000/Netbyzz4.png" alt="Netbyzz Logo" class="Netbyzz">
+  <div class="menu-icon" id="menuIcon">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <script>
+    document.getElementById('menuIcon').addEventListener('click', function() {
+  this.classList.toggle('open');
+});
+  </script>
+</body>
+</html>
