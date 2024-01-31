@@ -1,0 +1,122 @@
+<!-- CODE = #A012 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETBYZZ A012</title>
+  <style>
+    .frame {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400px;
+      height: 400px;
+      margin-top: -200px;
+      margin-left: -200px;
+      border-radius: 2px;
+      color: #fff;
+    }
+
+    .center {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      top: 90px;
+      left: 90px;
+    }
+
+    .dot-1,
+    .dot-2,
+    .dot-3 {
+      position: absolute;
+      background: #fff;
+      border-radius: 50%;
+      animation-fill-mode: both;
+    }
+
+    .dot-1 {
+      width: 30px;
+      height: 30px;
+      top: 95px;
+      left: 95px;
+      z-index: 3;
+      animation: jump-jump-1 2s cubic-bezier(.21, .98, .6, .99) infinite alternate;
+    }
+
+    .dot-2 {
+      width: 60px;
+      height: 60px;
+      top: 80px;
+      left: 80px;
+      z-index: 2;
+      animation: jump-jump-2 2s cubic-bezier(.21, .98, .6, .99) infinite alternate;
+    }
+
+    .dot-3 {
+      width: 90px;
+      height: 90px;
+      top: 65px;
+      left: 65px;
+      z-index: 1;
+      animation: jump-jump-3 2s cubic-bezier(.21, .98, .6, .99) infinite alternate;
+    }
+
+    @keyframes jump-jump-1 {
+      0%, 70% {
+        box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+        transform: scale(0);
+      }
+
+      100% {
+        box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes jump-jump-2 {
+      0%, 40% {
+        box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+        transform: scale(0);
+      }
+
+      100% {
+        box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+        transform: scale(1);
+      }
+    }
+
+    @keyframes jump-jump-3 {
+      0%, 10% {
+        box-shadow: 2px 2px 3px 2px rgba(0, 0, 0, 0.2);
+        transform: scale(0);
+      }
+
+      100% {
+        box-shadow: 10px 10px 15px 0 rgba(0, 0, 0, 0.3);
+        transform: scale(1);
+      }
+    }
+    .Netbyzz {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      width: 70%; /* Adjust the size of the logo */
+    }
+    body{
+      background: #272C34;
+    }
+  </style>
+</head>
+<body>
+  <div class="frame">
+    <div class="center">
+      <div class="dot-1"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi9DHYoUAJWbuMhteUDEwZLy0CwMoc5GGYkE5GcdUw9HfIZMFn-roZboroOT9cquCP0LT69wlZswyRdaoZDSb91V-9LNhOjEZpgRH9YdfjCMz0g3q8oDSUG9G_3JDMH3xFx5ezKF0BwTlfpQzB7gE2ZYps3JQTVfcP_FtLvmd8Z-2RyVvYu2P8xtsC25W8/s600/Netbyzz.png" alt="Netbyzz Logo" class="Netbyzz"></div>
+      <div class="dot-2"></div>
+      <div class="dot-3"></div>
+    </div>
+  </div>
+</body>
+</html>
