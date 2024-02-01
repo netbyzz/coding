@@ -1,0 +1,119 @@
+<!-- CODE = #A019 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETBYZZ A019</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Open+Sans:400');
+
+:root {
+  --transition: all .3s ease-in-out;
+  --colorA: #212121;
+  --colorB: #fff;
+  --colorC: #1253c8;
+}
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  overflow: hidden;
+  color: var(--colorA);
+  font-family: 'Open Sans', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body{
+  background: var(--colorA);
+}
+.Netbyzz {
+	margin-left: 0px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	width: 50%; /* Adjust the size of the logo */
+	opacity: 3%;
+	}
+
+.button {
+  position: absolute;
+  z-index: 2;
+  width: 200px;
+  height: 70px;
+  top: 160px;
+  left: 100px;
+  color: var(--colorA);
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 68px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  text-align: center;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.button:before {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  width: 200px;
+  height: 70px;
+  background: var(--colorB);
+  transform: translate(0, 0);
+  transition: var(--transition);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1);
+}
+
+.button:after {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  content: '';
+  display: block;
+  width: 200px;
+  height: 70px;
+  background: var(--colorC);
+  transform: translate(13px, 12px);
+  transition: var(--transition);
+  box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+  transform: translate(13px, 12px);
+  color: var(--colorB);
+}
+
+.button:hover:before {
+  background: var(--colorC);
+  box-shadow: 4px 4px 8px 0px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover:after {
+  transform: translate(-15px, -10px);
+  background: var(--colorB);
+}
+  </style>
+</head>
+<body>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3niQHzllfpJWl9Iss3ArAI7HSP4wA-vWMv-oN6X5ZUfZBiM4g9p92gO4mxJwExsrpAtRPLfb8WyFnOpjKWwSShfW0ohM0i3eoocCEF4bg0ppj0QcdOPy77suge-W_u-Dde5wIM4YbO0RQ39uXwpRB5H8yJBir9MWjJ_fO3bMhOdOYrGzBlWmI223Urew/s1000/Netbyzz4.png" alt="Netbyzz Logo" class="Netbyzz">
+  <div class="frame">
+    <div class="button" onclick="void(0);">
+      Hover me
+    </div>
+  </div>
+</body>
+</html>
