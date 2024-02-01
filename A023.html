@@ -1,0 +1,149 @@
+<!-- CODE = #A023 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETBYZZ A023</title>
+  <style>
+
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,700|Merriweather+Sans:400,700,300);
+
+body, html {
+  background-color: #F0F0F0;
+  height: 100%;
+}
+
+h1 {
+  font-family: 'Merriweather Sans', sans-serif;
+  font-size: 5em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #FFF;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.main {
+  display: table;
+  height: 100%;
+}
+
+.box {
+  font-family: 'Merriweather', serif;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+/* Animation 1 : Slide */
+
+.trait-bas {
+  position: absolute;
+  top: 0;
+  border-top: 1px solid #FFF;
+  animation: slide 1.5s linear 1s forwards;
+}
+
+.trait-haut {
+  position: absolute;
+  bottom: 0;
+  border-bottom: 1px solid #FFF;
+  animation: slide 1.5s linear 1s forwards;
+}
+
+@keyframes slide {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* Animation 2 : Name */
+
+.ben {
+  position: absolute;
+  bottom: 0px;
+  opacity: 0;
+  animation: benCome 1s linear 2.5s forwards;
+}
+
+.zan {
+  position: absolute;
+  top: 0px;
+  opacity: 0;
+  animation: zanCome 1s linear 2.5s forwards;
+}
+
+@keyframes benCome {
+  from { bottom: -50px; opacity: 0; }
+  50%  { opacity: 0; }
+  to   { bottom: 0; opacity: 1; }
+}
+
+@keyframes zanCome {
+  from { top: -50px; opacity: 0; }
+  50%  { opacity: 0; }
+  to   { top: 0; opacity: 1; }
+}
+
+/* Animation 3 : Panel */
+
+.panel {
+  background-color: #301c1c;
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  z-index: 1;
+}
+
+.Netbyzz {
+      margin-left: 0px;
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 30%; /* Adjust the size of the logo */
+      z-index: 0;
+      }
+
+.haut {
+  top: 0;
+  animation: panel 1s linear 4s forwards;
+}
+
+.bas {
+  bottom: 0;
+  animation: panel 1s linear 4s forwards;
+}
+
+@keyframes panel {
+  from { height: 50%; }
+  to   { height: 22%; }
+}
+  </style>
+</head>
+<body>
+  <div class="panel haut">
+    <h1 class="name ben">Hello</h1>
+    <div class="trait-haut"></div>
+  </div>
+  
+  <div class="main w66 center">
+    <div class="box txtcenter">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXeCuyCrXqUp_lKKOQ23p0Gf-6lqEykPMotKnJmhARRZ8YNAAjt-RI-Vb9XXhyXdrTQYjxMcGL9m3nHKpxSyF287emuYWYUxGBc9LJkMgzsjBUZ3x4O0o_W7NtbiZReTFcqU8iIx_AGf-FweRHztB5-e0eXDiHTXUcvS35VcIsnlwMAsFNHk_r_DUjUKo/s1000/Netbyzz3.png" alt="Netbyzz Logo" class="Netbyzz">
+    </div>
+  </div>
+  
+  <div class="panel bas">
+    <div class="trait-bas"></div>
+    <h1 class="name zan">World</h1>
+  </div>
+  
+  <script>
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
+  </script>
+  <script>
+    
+  </script>
+</body>
+</html>
