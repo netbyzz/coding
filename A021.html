@@ -1,0 +1,232 @@
+<!-- CODE = #A021 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NETBYZZ A021</title>
+  <style>
+    .frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  overflow: hidden;
+  color: #fff;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body{
+  background: #565454;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  perspective: 500px;
+}
+
+.Netbyzz {
+	margin-left: 0px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: -1;
+	width: 50%; /* Adjust the size of the logo */
+	opacity: 3%;
+	}
+
+.loader {
+  width: 120px;
+  height: 120px;
+  transform-style: preserve-3d;
+  transform: rotateX(-25deg) rotateY(45deg);
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+.loader:hover {
+  transform: rotateX(-25deg) rotateY(45deg) translateY(-15px);
+}
+.loader:hover .bottom {
+  box-shadow: -22px -22px 30px 0 rgba(0, 0, 0, 0.4);
+}
+.loader .plane {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+.loader .bottom {
+  transform: rotateX(-90deg) translateZ(60px);
+  background: rgba(39, 115, 215, 0.8);
+  box-shadow: -8px -8px 10px 0 rgba(0, 0, 0, 0.4);
+  transition: all 0.5s ease-in-out;
+}
+.loader .left {
+  transform: rotateY(-90deg) translateZ(60px);
+}
+.loader .left:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 82, 200, 0.799);
+  transform-origin: 50% 100%;
+  -webkit-animation: fill 4s ease-in-out infinite alternate;
+          animation: fill 4s ease-in-out infinite alternate;
+}
+.loader .right {
+  transform: rotateY(90deg) translateZ(60px);
+}
+.loader .right:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 82, 200, 0.799);
+  transform-origin: 50% 100%;
+  -webkit-animation: fill 4s ease-in-out infinite alternate;
+          animation: fill 4s ease-in-out infinite alternate;
+}
+.loader .back {
+  transform: rotateY(180deg) translateZ(60px);
+}
+.loader .back:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 82, 200, 0.799);
+  transform-origin: 50% 100%;
+  -webkit-animation: fill 4s ease-in-out infinite alternate;
+          animation: fill 4s ease-in-out infinite alternate;
+}
+.loader .front {
+  transform: rotateY(0deg) translateZ(60px);
+}
+.loader .front:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(18, 82, 200, 0.799);
+  transform-origin: 50% 100%;
+  -webkit-animation: fill 4s ease-in-out infinite alternate;
+          animation: fill 4s ease-in-out infinite alternate;
+}
+.loader .top {
+  transform: rotateX(90deg) translateZ(60px);
+  opacity: 0.5;
+}
+.loader .fill-top {
+  background: rgba(18, 82, 200, 0.799);
+  -webkit-animation: fill-top 4s ease-in-out infinite alternate;
+          animation: fill-top 4s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes fill {
+  0%, 25% {
+    transform: scaleY(0);
+  }
+  75%, 100% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes fill {
+  0%, 25% {
+    transform: scaleY(0);
+  }
+  75%, 100% {
+    transform: scaleY(1);
+  }
+}
+@-webkit-keyframes color-bottom {
+  0% {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  25%, 100% {
+    background: rgba(46, 204, 113, 0.8);
+  }
+}
+@keyframes color-bottom {
+  0% {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  25%, 100% {
+    background: rgba(46, 204, 113, 0.8);
+  }
+}
+@-webkit-keyframes color-top {
+  0%, 25% {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  75%, 100% {
+    background: rgba(46, 204, 113, 0.8);
+  }
+}
+@keyframes color-top {
+  0%, 25% {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  75%, 100% {
+    background: rgba(46, 204, 113, 0.8);
+  }
+}
+@-webkit-keyframes fill-top {
+  0%, 25% {
+    transform: rotateX(90deg) translateZ(-60px);
+  }
+  75%, 100% {
+    transform: rotateX(90deg) translateZ(59px);
+  }
+}
+@keyframes fill-top {
+  0%, 25% {
+    transform: rotateX(90deg) translateZ(-60px);
+  }
+  75%, 100% {
+    transform: rotateX(90deg) translateZ(59px);
+  }
+}
+  </style>
+</head>
+<body>
+  <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3niQHzllfpJWl9Iss3ArAI7HSP4wA-vWMv-oN6X5ZUfZBiM4g9p92gO4mxJwExsrpAtRPLfb8WyFnOpjKWwSShfW0ohM0i3eoocCEF4bg0ppj0QcdOPy77suge-W_u-Dde5wIM4YbO0RQ39uXwpRB5H8yJBir9MWjJ_fO3bMhOdOYrGzBlWmI223Urew/s1000/Netbyzz4.png" alt="Netbyzz Logo" class="Netbyzz">
+  <div class="frame" title="Netbyzz">
+    <div class="center">
+      <div class="loader" onclick="void(0);">
+        <div class="plane bottom"></div>
+        <div class="plane left"></div>
+        <div class="plane right"></div>
+        <div class="plane back"></div>
+        <div class="plane front"></div>
+        <div class="plane top"></div>
+        <div class="plane fill-top"></div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
