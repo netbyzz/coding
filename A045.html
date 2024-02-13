@@ -1,0 +1,58 @@
+<!-- CODE = #A045 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETBYZZ A045</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .waviy {
+        position: relative;
+      }
+      .waviy span {
+        position: relative;
+        display: inline-block;
+        font-size: 40px;
+        color: #fff;
+        text-transform: uppercase;
+        animation: flip 2s infinite;
+        animation-delay: calc(0.2s * var(--i));
+      }
+      @keyframes flip {
+        0%,
+        80% {
+          transform: rotateY(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <body>
+      <div class="waviy">
+        <span style="--i: 1">N</span>
+        <span style="--i: 2">E</span>
+        <span style="--i: 3">T</span>
+        <span style="--i: 4">B</span>
+        <span style="--i: 5">Y</span>
+        <span style="--i: 6">Z</span>
+        <span style="--i: 7">Z</span>
+        <span style="--i: 8">.</span>
+        <span style="--i: 9">.</span>
+        <span style="--i: 10">.</span>
+      </div>
+    </body>
+  </body>
+</html>
