@@ -1,0 +1,199 @@
+<!-- CODE = #A053 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETBYZZ A053</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .container {
+        max-width: 600px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
+      h1 {
+        margin-top: 0;
+        color: #333;
+      }
+      #word {
+        font-size: 2em;
+        margin-bottom: 20px;
+        letter-spacing: 10px;
+      }
+      #guessInput {
+        padding: 10px;
+        font-size: 1em;
+        width: 60px;
+        text-align: center;
+        margin-right: 10px;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+      }
+      #guessButton {
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      #guessButton:hover {
+        background-color: #0056b3;
+      }
+      #hintButton {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 1em;
+        cursor: pointer;
+        background-color: #28a745;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+      }
+      #hintButton:hover {
+        background-color: #218838;
+      }
+      #message {
+        margin-top: 20px;
+        font-weight: bold;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Word Guessing Game</h1>
+      <div id="word"></div>
+      <input type="text" id="guessInput" placeholder="Guess" />
+      <button id="guessButton">Submit</button>
+      <button id="hintButton">Hint</button>
+      <div id="message"></div>
+    </div>
+
+    <script>
+      const words = [
+        {
+          word: "javascript",
+          hint: "A programming language for web development",
+        },
+        { word: "html", hint: "A markup language for creating web pages" },
+        { word: "css", hint: "A language used to style HTML elements" },
+        { word: "python", hint: "A versatile programming language" },
+        {
+          word: "java",
+          hint: "A popular programming language used for building applications",
+        },
+        {
+          word: "ruby",
+          hint: "A dynamic, reflective, object-oriented, general-purpose programming language",
+        },
+        {
+          word: "swift",
+          hint: "A powerful and intuitive programming language for macOS, iOS, watchOS, and tvOS",
+        },
+        {
+          word: "php",
+          hint: "A server-side scripting language designed for web development",
+        },
+      ];
+      const randomIndex = Math.floor(Math.random() * words.length);
+      let secretWord = words[randomIndex].word;
+      let hint = words[randomIndex].hint;
+      let guessedWord = "_".repeat(secretWord.length);
+      let remainingGuesses = 6;
+
+      const wordElement = document.getElementById("word");
+      const guessInput = document.getElementById("guessInput");
+      const guessButton = document.getElementById("guessButton");
+      const hintButton = document.getElementById("hintButton");
+      const messageElement = document.getElementById("message");
+
+      function displayWord() {
+        wordElement.textContent = guessedWord.split("").join(" ");
+      }
+
+      function updateMessage(message) {
+        messageElement.textContent = message;
+      }
+
+      function checkGuess(letter) {
+        let newGuessedWord = "";
+        let correctGuess = false;
+        for (let i = 0; i < secretWord.length; i++) {
+          if (secretWord[i] === letter && guessedWord[i] === "_") {
+            newGuessedWord += letter;
+            correctGuess = true;
+          } else {
+            newGuessedWord += guessedWord[i];
+          }
+        }
+        guessedWord = newGuessedWord;
+        return correctGuess;
+      }
+
+      function checkWin() {
+        if (guessedWord === secretWord) {
+          updateMessage("Congratulations! You guessed the word.");
+          guessInput.disabled = true;
+          guessButton.disabled = true;
+          hintButton.disabled = true;
+        }
+      }
+
+      function checkLose() {
+        if (remainingGuesses === 0) {
+          updateMessage(
+            `Sorry, you ran out of guesses. The word was ${secretWord}.`
+          );
+          guessInput.disabled = true;
+          guessButton.disabled = true;
+          hintButton.disabled = true;
+        }
+      }
+
+      function makeGuess() {
+        const letter = guessInput.value.toLowerCase();
+        if (!letter.match(/[a-z]/)) {
+          updateMessage("Please enter a valid letter (a-z).");
+          return;
+        }
+        if (checkGuess(letter)) {
+          updateMessage("Good guess!");
+        } else {
+          updateMessage("Sorry, wrong guess.");
+          remainingGuesses--;
+        }
+        displayWord();
+        checkWin();
+        checkLose();
+        guessInput.value = "";
+      }
+
+      function revealHint() {
+        updateMessage(`Hint: ${hint}`);
+        hintButton.disabled = true;
+      }
+
+      displayWord();
+
+      guessButton.addEventListener("click", makeGuess);
+      hintButton.addEventListener("click", revealHint);
+    </script>
+  </body>
+</html>

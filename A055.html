@@ -1,0 +1,109 @@
+<!-- CODE = #A055 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETBYZZ A055</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f0f0f0;
+      }
+
+      .game-container {
+        text-align: center;
+      }
+
+      .target {
+        width: 200px;
+        height: 200px;
+        background-color: #f00;
+        border-radius: 50%;
+        margin: 20px;
+        display: inline-block;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .target:hover {
+        background-color: #c00;
+      }
+
+      .message {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+
+      .timer {
+        font-size: 24px;
+        margin-top: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .target {
+          width: 100px;
+          height: 100px;
+        }
+
+        .message {
+          font-size: 18px;
+        }
+
+        .timer {
+          font-size: 18px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="game-container">
+      <div class="target" onclick="hitTarget()"></div>
+      <div class="message">Click the target!</div>
+      <div class="timer">Time left: <span id="time">10</span> seconds</div>
+    </div>
+
+    <script>
+      let score = 0;
+      let timeLeft = 10;
+      let timerId;
+
+      function hitTarget() {
+        score++;
+        document.querySelector(".message").innerText = `Score: ${score}`;
+        resetTarget();
+      }
+
+      function resetTarget() {
+        const target = document.querySelector(".target");
+        target.style.marginLeft = `${
+          Math.random() * (window.innerWidth - target.clientWidth)
+        }px`;
+        target.style.marginTop = `${
+          Math.random() * (window.innerHeight - target.clientHeight)
+        }px`;
+      }
+
+      function countdown() {
+        timeLeft--;
+        document.getElementById("time").innerText = timeLeft;
+        if (timeLeft === 0) {
+          clearInterval(timerId);
+          document.querySelector(
+            ".message"
+          ).innerText = `Game over! Final score: ${score}`;
+          document.querySelector(".target").style.display = "none";
+        }
+      }
+
+      resetTarget();
+      timerId = setInterval(countdown, 1000);
+    </script>
+  </body>
+</html>
