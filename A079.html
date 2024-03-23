@@ -1,0 +1,47 @@
+<!-- CODE = #A079 -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NETBYZZ A079</title>
+    <style>
+      body {
+  background-color: #dadada;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse {
+  background-color: #1253c8;
+  border-radius: 50%;
+  animation: pulse-effect 2s infinite;
+  height: 80px;
+  width: 80px;
+}
+
+@keyframes pulse-effect {
+  0% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 #2759b6;
+  }
+  
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(255, 82, 82, 0);
+  }
+  
+  100% {
+    transform: scale(0.9);
+    box-shadow: 0 0 0 0 rgba(255, 82, 82, 0);
+  }
+}
+    </style>
+  </head>
+  <body>
+    <div class="pulse"></div>
+  </body>
+</html>
