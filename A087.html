@@ -52,7 +52,7 @@
       maxlength="1"
       oninput="moveToNextField(this, 'input4')"
     />
-    <input type="number" id="input4" maxlength="1" />
+    <input type="number" id="input4" oninput="limitToOneCharacter(this)"/>
 
     <script>
       function moveToNextField(currentInput, nextInputId) {
@@ -60,6 +60,9 @@
           document.getElementById(nextInputId).focus();
         }
       }
+	  function limitToOneCharacter(input) {
+		input.value = input.value.slice(0, 1);
+		}
     </script>
   </body>
 </html>
