@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aarvi Tendy 400 | Premium Flour Mill</title>
     
-    <!-- Google Fonts: Poppins for a modern look -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
@@ -17,7 +17,7 @@
             --primary: #4c9a8d;
             --primary-dark: #3a7a6f;
             --primary-light: #e6f5f3;
-            --accent: #ff7e5f; /* For offers */
+            --accent: #ff7e5f;
             --text-dark: #2d3436;
             --text-gray: #636e72;
             --white: #ffffff;
@@ -27,16 +27,8 @@
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
@@ -44,44 +36,26 @@
             line-height: 1.7;
             overflow-x: hidden;
         }
-
         a { text-decoration: none; color: inherit; }
         ul { list-style: none; }
         img { max-width: 100%; display: block; }
 
-        /* --- 2. Animations --- */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* --- Animations --- */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+        @keyframes pulse-btn { 0% { box-shadow: 0 0 0 0 rgba(76, 154, 141, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(76, 154, 141, 0); } 100% { box-shadow: 0 0 0 0 rgba(76, 154, 141, 0); } }
+        
+        /* Special Button Animations */
+        @keyframes shineStrong { 0% { left: -120px; } 100% { left: 140%; } }
+        @keyframes ultraPulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse-btn {
-            0% { box-shadow: 0 0 0 0 rgba(76, 154, 141, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(76, 154, 141, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(76, 154, 141, 0); }
-        }
-
-        .animate-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-
+        .animate-up { animation: fadeInUp 0.8s ease-out forwards; }
         .delay-100 { animation-delay: 0.1s; }
         .delay-200 { animation-delay: 0.2s; }
         .delay-300 { animation-delay: 0.3s; }
 
-        /* --- 3. Components --- */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
+        /* --- Components --- */
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
         .section-padding { padding: 80px 0; }
 
         /* Buttons */
@@ -98,49 +72,62 @@
             border: none;
             gap: 10px;
         }
-
-        .btn-primary {
-            background: var(--primary);
+        
+        .netbyzz-special-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            gap: 10px;
+            background: #d83228;
             color: var(--white);
             box-shadow: 0 10px 20px rgba(76, 154, 141, 0.3);
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 15px 30px rgba(76, 154, 141, 0.4);
-        }
-
-        .btn-pulse {
-            animation: pulse-btn 2s infinite;
-        }
-
-        .section-header {
             text-align: center;
-            margin-bottom: 60px;
+            animation: ultraPulse 2s infinite ease-in-out;
             position: relative;
+            overflow: hidden;
         }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary-dark);
-            font-weight: 800;
-            margin-bottom: 10px;
-        }
-
-        .section-header::after {
-            content: '';
-            display: block;
+        .netbyzz-special-btn::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -120px;
             width: 80px;
-            height: 4px;
-            background: var(--primary);
-            margin: 10px auto 0;
-            border-radius: 2px;
+            height: 100%;
+            background: linear-gradient(120deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+            transform: skewX(-20deg);
+            animation: shineStrong 1.8s infinite;
         }
+		
+		.netbyzz-review-gap{
+			text-align: left;
+			line-height: 1.3;
+		}
+        
+        .btn-primary {
+            background: transparent;
+            color: #d83228;
+            border: 2px solid #d83228;
+            box-shadow: 0 10px 20px rgba(76, 154, 141, 0.3);
+        }
+        .btn-primary:hover { background: #d83228; color: #fff; }
+        .btn-pulse { animation: pulse-btn 2s infinite; }
 
-        /* --- 4. Header --- */
+        /* Section Header */
+        .section-header { text-align: center; margin-bottom: 60px; position: relative; }
+        .section-header h2 { font-size: 2.5rem; color: var(--primary-dark); font-weight: 800; margin-bottom: 10px; }
+        .section-header::after { content: ''; display: block; width: 80px; height: 4px; background: var(--primary); margin: 10px auto 0; border-radius: 2px; }
+
+        /* --- Header --- */
         header {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
@@ -148,23 +135,11 @@
             padding: 15px 0;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-
-        .nav-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: var(--primary);
-            letter-spacing: -1px;
-        }
-
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; z-index:1; }
         .logo span { color: var(--text-dark); }
 
-        /* --- 5. Hero Section --- */
+        /* --- Hero Section --- */
         .hero {
             min-height: 90vh;
             display: flex;
@@ -175,288 +150,131 @@
             padding-top: 40px;
             padding-bottom: 40px;
         }
-
-        /* Abstract shapes */
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            z-index: 0;
-        }
+        .shape { position: absolute; border-radius: 50%; opacity: 0.1; z-index: 0; }
         .shape-1 { width: 300px; height: 300px; background: var(--primary); top: -50px; right: -50px; }
         .shape-2 { width: 200px; height: 200px; background: var(--accent); bottom: 50px; left: -50px; }
-
-        .hero-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 2.5rem;
-            line-height: 1.2;
-            margin-bottom: 20px;
-            color: var(--text-dark);
-        }
-
-        .highlight-bg {
-            background: linear-gradient(120deg, var(--primary-light) 0%, rgba(255,255,255,0) 100%);
-            padding: 0 10px;
-            border-radius: 8px;
-            color: var(--primary-dark);
-        }
-
-        .offer-badge {
-            display: inline-block;
-            background: #ffeaa7;
-            color: #d35400;
-            font-weight: 700;
-            padding: 8px 15px;
-            border-radius: 30px;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            border: 2px solid #fdcb6e;
-        }
-
-        .price-box {
-            margin: 30px 0;
-        }
-
-        .current-price {
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: #d8342a;
-            line-height: 1;
-        }
-
-        .old-price {
-            font-size: 1.5rem;
-            color: #999;
-            text-decoration: line-through #d8342a;
-            margin-left: 10px;
-        }
-
-        .hero-img-container {
-            position: relative;
-            text-align: center;
-        }
-
-        .hero-img-container img {
-            width: 80%;
-            margin: 0 auto;
-            border-radius: 20px;
-            box-shadow: 20px 20px 60px rgba(0,0,0,0.1), -20px -20px 60px rgba(255,255,255,0.8);
-            animation: float 6s ease-in-out infinite;
-            background: #fff;
-        }
-
-        /* --- 6. Features Grid --- */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-sm);
-            transition: var(--transition);
-            border-bottom: 4px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-bottom-color: var(--primary);
-        }
-
-        .feature-icon {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 20px;
-            background: var(--primary-light);
-            width: 60px;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover .feature-icon {
-            background: var(--primary);
-            color: var(--white);
-            transform: rotateY(360deg);
-        }
-
-        /* --- 7. Product Specs (Table) --- */
-        .specs-section {
-            background: var(--primary);
-            color: white;
-            position: relative;
-        }
         
-        /* White wave top */
-        .custom-shape-divider-top {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            line-height: 0;
-        }
-        .custom-shape-divider-top svg {
-            position: relative;
-            display: block;
-            width: calc(100% + 1.3px);
-            height: 50px;
-        }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; align-items: center; position: relative; z-index: 1; gap: 30px; }
+        
+        .hero-content h1 { font-size: 2.5rem; line-height: 1.2; margin-bottom: 20px; color: var(--text-dark); }
+        .highlight-bg { background: linear-gradient(120deg, var(--primary-light) 0%, rgba(255,255,255,0) 100%); padding: 0 10px; border-radius: 8px; color: var(--primary-dark); }
+        .offer-badge { display: inline-block; background: #ffeaa7; color: #d35400; font-weight: 700; padding: 8px 15px; border-radius: 30px; font-size: 0.9rem; margin-bottom: 20px; border: 2px solid #fdcb6e; }
+        
+        .price-box { margin: 30px 0; }
+        .current-price { font-size: 3.5rem; font-weight: 800; color: #d83228; line-height: 1; }
+        .old-price { font-size: 1.5rem; color: #999; text-decoration: line-through #d83228; margin-left: 10px; }
+        
+        .hero-img-container { position: relative; text-align: center; }
+        .hero-img-container img { width: 80%; margin: 0 auto; border-radius: 20px; box-shadow: 20px 20px 60px rgba(0,0,0,0.1), -20px -20px 60px rgba(255,255,255,0.8); animation: float 6s ease-in-out infinite; background: #fff; }
+
+        /* --- Features --- */
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
+        .feature-card { background: var(--white); padding: 30px; border-radius: var(--radius); box-shadow: var(--shadow-sm); transition: var(--transition); border-bottom: 4px solid transparent; position: relative; overflow: hidden; }
+        .feature-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg); border-bottom-color: var(--primary); }
+        .feature-icon { font-size: 2rem; color: var(--primary); margin-bottom: 20px; background: var(--primary-light); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: var(--transition); }
+        .feature-card:hover .feature-icon { background: var(--primary); color: var(--white); transform: rotateY(360deg); }
+
+        /* --- Specs --- */
+        .specs-section { background: var(--primary); color: white; position: relative; }
+        .custom-shape-divider-top { position: absolute; top: 0; left: 0; width: 100%; overflow: hidden; line-height: 0; }
+        .custom-shape-divider-top svg { position: relative; display: block; width: calc(100% + 1.3px); height: 50px; }
         .custom-shape-divider-top .shape-fill { fill: #f8fcfb; }
+        
+        .specs-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-top: 40px; }
+        .specs-card { background: white; color: var(--text-dark); border-radius: 20px; padding: 40px; width: 100%; max-width: 800px; box-shadow: 0 25px 50px rgba(0,0,0,0.2); }
+        
+        .specs-table { width: 100%; border-collapse: separate; border-spacing: 0 15px; }
+        .specs-table th { text-align: left; color: var(--text-gray); font-weight: 500; width: 40%; }
+        .specs-table td { font-weight: 700; font-size: 1.1rem; color: var(--primary-dark); }
+        .specs-table tr { border-bottom: 1px solid #eee; }
+        .warning-box { background: #fff3cd; color: #856404; padding: 20px; border-radius: 10px; border-left: 5px solid #ffc107; margin-top: 20px; font-size: 0.95rem; }
 
-        .specs-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 40px;
-        }
+        /* --- Trust Section --- */
+        .trust-grid { display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px; text-align: center; }
+        .trust-item { flex: 1; min-width: 200px; }
+        .trust-item i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; opacity: 0.8; }
 
-        .specs-card {
-            background: white;
-            color: var(--text-dark);
-            border-radius: 20px;
-            padding: 40px;
+        /* --- Reviews Slider (UPDATED) --- */
+        .reviews-section { background: var(--primary-light); }
+        
+        /* Slider Container */
+        .slider-container {
             width: 100%;
-            max-width: 800px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden; /* Hides content outside the viewing area */
+            padding: 20px 0 40px;
         }
 
-        .specs-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0 15px;
-        }
-
-        .specs-table th {
-            text-align: left;
-            color: var(--text-gray);
-            font-weight: 500;
-            width: 40%;
-        }
-
-        .specs-table td {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: var(--primary-dark);
-        }
-
-        .specs-table tr {
-            border-bottom: 1px solid #eee;
-        }
-
-        .warning-box {
-            background: #fff3cd;
-            color: #856404;
-            padding: 20px;
-            border-radius: 10px;
-            border-left: 5px solid #ffc107;
-            margin-top: 20px;
-            font-size: 0.95rem;
-        }
-
-        /* --- 8. Trust Section --- */
-        .trust-grid {
+        .slider-track {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 20px;
-            text-align: center;
+            transition: transform 0.5s ease-in-out;
+            /* Width will be calculated by JS based on number of slides */
         }
 
-        .trust-item {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .trust-item i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 15px;
-            opacity: 0.8;
-        }
-
-        /* --- 9. Reviews --- */
-        .reviews-section {
-            background: var(--primary-light);
+        .slider-slide {
+            min-width: 100%; /* Shows one slide at a time */
+            padding: 0 15px; /* Spacing between slides */
+            box-sizing: border-box;
         }
 
         .review-card {
             background: white;
-            padding: 30px;
+            padding: 40px 30px 30px;
             border-radius: 20px;
             box-shadow: var(--shadow-sm);
             position: relative;
-            margin-bottom: 20px;
+            text-align: center;
+            height: 100%;
         }
 
         .review-card::before {
             content: '\201C';
             position: absolute;
-            top: 10px;
+            top: 0px;
             left: 20px;
             font-size: 5rem;
             color: var(--primary);
-            opacity: 0.1;
+            opacity: 0.2;
             font-family: serif;
         }
 
-        .review-text {
-            font-style: italic;
-            color: #555;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 1;
-        }
+        .review-text { padding:0 20px; font-style: italic; color: #555; margin-bottom: 20px; font-size: 1.1rem; }
+        .review-author { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; }
+        .avatar-circle { width: 45px; height: 45px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
 
-        .review-author {
+        /* Slider Controls */
+        .slider-dots {
             display: flex;
-            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
             gap: 10px;
         }
 
-        .avatar-circle {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            color: white;
+        .dot {
+            width: 12px;
+            height: 12px;
+            background: #cbd5e1;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
         }
 
-        /* --- 10. FAQ & Footer --- */
+        .dot.active {
+            background: var(--primary);
+            width: 30px;
+            border-radius: 10px;
+        }
+
+        /* --- FAQ (Accordion Style) --- */
         .faq-item {
             background: white;
             border: 1px solid #eee;
             border-radius: 10px;
             margin-bottom: 15px;
-            padding: 20px;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .faq-item:hover {
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            overflow: hidden; /* Important for accordion transition */
+            transition: all 0.3s ease;
         }
 
         .faq-q {
@@ -464,58 +282,100 @@
             color: var(--text-dark);
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            cursor: pointer;
+            background: #fff;
+            position: relative;
+            z-index: 2;
         }
 
+        .faq-q i {
+            transition: transform 0.3s ease;
+            color: var(--primary);
+        }
+
+        /* The hidden answer */
         .faq-a {
-            margin-top: 10px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+            background: #fafafa;
+            padding: 0 20px; /* Initially 0 top/bottom padding */
             color: var(--text-gray);
             font-size: 0.95rem;
+            border-top: 1px solid transparent;
         }
 
-        footer {
-            background: #1a1a1a;
-            color: #eee;
-            padding-top: 60px;
-            padding-bottom: 20px;
-            text-align: center;
+        /* Active State for FAQ */
+        .faq-item.active {
+            border-color: var(--primary);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        .footer-cta-box {
-            background: var(--primary);
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 800px;
-            margin: -100px auto 50px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            position: relative;
-            z-index: 10;
+        .faq-item.active .faq-q i {
+            transform: rotate(180deg);
         }
 
-        .footer-links a {
-            color: var(--primary);
-            font-weight: bold;
+        .faq-item.active .faq-a {
+            max-height: 200px; /* Arbitrary large height to allow content */
+            padding: 15px 20px 20px;
+            border-top: 1px solid #eee;
         }
 
-        .dealer-badge {
-            background: #333;
-            border: 1px solid #444;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 30px auto;
-            max-width: 600px;
-        }
+        /* --- Footer --- */
+        footer { background: #1a1a1a; color: #eee; padding-top: 60px; padding-bottom: 20px; text-align: center; }
+        .footer-cta-box { background: var(--primary); border-radius: 20px; padding: 40px; max-width: 800px; margin: -100px auto 50px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); position: relative; z-index: 10; }
+        .footer-links a { color: var(--primary); font-weight: bold; }
+        .dealer-badge { background: #333; border: 1px solid #444; padding: 20px; border-radius: 10px; margin: 30px auto; max-width: 600px; }
 
-        /* Responsive */
+        /* --- RESPONSIVE CSS (Mobile & Tablet) --- */
         @media (max-width: 968px) {
-            .hero-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            .hero-content { order: 2; }
-            .hero-img-container { order: 1; margin-bottom: 30px; }
-            .hero h1 { font-size: 1.7rem; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+            .hero-content { order: 2; padding: 0 10px; }
+            .hero-img-container { order: 1; margin-bottom: 0px; }
+            .hero h1 { font-size: 2rem; }
             .section-header h2 { font-size: 2rem; }
-            .specs-card { padding: 20px; }
+            .specs-card { padding: 25px; }
+            .netbyzz-special-fontsize { font-size: 0.9rem; }
+            
+            /* Button fix for tablet */
+            .netbyzz-special-btn { padding: 12px 24px; font-size: 1rem; }
+        }
+
+        @media (max-width: 576px) {
+            /* General text scaling */
+            html { font-size: 15px; }
+            .section-padding { padding: 50px 0; }
+            
+            /* Header */
+            .logo { font-size: 1.5rem; }
+            .netbyzz-special-btn { 
+                padding: 10px 18px; 
+                font-size: 0.9rem; 
+                border-radius: 30px;
+            }
+            .netbyzz-special-btn i { display: none; } /* Hide icon on very small screens to save space */
+            
+            /* Hero */
+            .hero h1 { font-size: 1.8rem; margin-bottom: 15px; }
+            .current-price { font-size: 2.8rem; }
+            .old-price { font-size: 1.2rem; display: block; margin: 0; margin-bottom: 10px; }
+            .btn-primary { width: 100%; margin-top: 10px; }
+            .hero-img-container img { width: 90%; }
+            
+            /* Specs Table */
+            .specs-table th { width: 45%; font-size: 0.9rem; }
+            .specs-table td { font-size: 1rem; }
+            .specs-card { padding: 20px 15px; }
+
+            /* Trust Icons */
+            .trust-grid { flex-direction: column; gap: 30px; }
+            
+            /* Footer CTA */
+            .footer-cta-box { margin: -80px 15px 40px; padding: 30px 20px; }
+            .footer-cta-box h3 { font-size: 1.6rem; }
+            .dealer-badge { margin: 30px 15px; }
         }
     </style>
 </head>
@@ -525,7 +385,8 @@
     <header>
         <div class="container nav-flex">
             <div class="logo">Aarvi <span>Tendy</span></div>
-            <a href="#buy" class="btn btn-primary" style="padding: 10px 25px; font-size: 0.9rem;">
+            <!-- Wrapped in div to maintain button style structure -->
+            <a href="#buy" class="netbyzz-special-btn">
                 Buy Now <i class="fas fa-shopping-cart"></i>
             </a>
         </div>
@@ -552,12 +413,12 @@
                     <span class="old-price">₹15,199</span>
                 </div>
 
-                <div style="gap: 15px; flex-wrap: wrap; justify-content: start;">
+                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
                     <a href="#buy" class="btn btn-primary btn-pulse">
-                        Buy Now Direct <i class="fas fa-arrow-right"></i>
+                        Direct Buy Now <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
-                <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">*Limited Stock! Delivery in 10-15 days.</p>
+                <p style="margin-top: 15px; font-size: 0.8rem; color: #888;">*Limited Stock! Delivery in 10-15 days.</p>
             </div>
 
             <div class="hero-img-container animate-up delay-200">
@@ -622,7 +483,7 @@
         <div class="container">
             <div class="section-header" style="color: white;">
                 <h2 style="color: white;">Technical Specifications</h2>
-                <p style="color: rgba(255,255,255,0.8);">Everything you need to know about Tendy 400</p>
+                <p class="netbyzz-special-fontsize" style="color: rgba(255,255,255,0.8);">Everything you need to know about Tendy 400</p>
             </div>
 
             <div class="specs-container">
@@ -647,7 +508,7 @@
                     </table>
 
                     <div class="warning-box">
-                        <strong>⭐ Special Note:</strong> Tendy 400 is our new and superior product that has become highly demanding. Therefore, this special offer is for a <strong>short time only!</strong> This price won't last – <strong>Act now!</strong>
+                        <strong style="color:black;">⭐ Special Note:</strong><br>Tendy 400 is our new and superior product that has become highly demanding. Therefore, this special offer is for a <strong>short time only!</strong> This price won't last – <strong>Act now!</strong>
                     </div>
                 </div>
             </div>
@@ -684,43 +545,81 @@
     <section style="background: var(--text-dark); color: white; padding: 60px 0; text-align: center;">
         <div class="container">
             <h2 style="margin-bottom: 20px;">🎁 A Smart Investment for Your Home!</h2>
-            <p style="max-width: 700px; margin: 0 auto; opacity: 0.8;">Give the gift of health and convenience to your loved ones! Ideal for families, friends, newlyweds, or anyone who values fresh, home-ground flour.</p>
+            <p style="max-width: 700px; margin: 0 auto; opacity: 0.8; padding: 0 10px;">Give the gift of health and convenience to your loved ones! Ideal for families, friends, newlyweds, or anyone who values fresh, home-ground flour.</p>
         </div>
     </section>
 
-    <!-- Reviews -->
+    <!-- Reviews (UPDATED: Slider with 5 Reviews) -->
     <section class="section-padding reviews-section">
         <div class="container">
             <div class="section-header">
                 <h2>Customer Reviews</h2>
             </div>
-            <div class="features-grid">
-                <div class="review-card animate-up delay-100">
-                    <p class="review-text">“I have been using it for quite a few months, it is absolutely tension-free. Easy to move and too light-weight, and the home-ground flour feels completely hygienic.”</p>
-                    <div class="review-author">
-                        <div class="avatar-circle">N</div>
-                        <div><strong>Neha Patel</strong><br><small>Ahmedabad</small></div>
+            
+            <div class="slider-container animate-up">
+                <div class="slider-track" id="sliderTrack">
+                    <!-- Review 1 -->
+                    <div class="slider-slide">
+                        <div class="review-card">
+                            <p class="review-text">“I have been using it for quite a few months, it is absolutely tension-free. Easy to move and too light-weight, and the home-ground flour feels completely hygienic.”</p>
+                            <div class="review-author">
+                                <div class="avatar-circle">N</div>
+                                <div class="netbyzz-review-gap"><strong>Neha Patel</strong><br><small>Ahmedabad</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 2 -->
+                    <div class="slider-slide">
+                        <div class="review-card">
+                            <p class="review-text">“It’s the best and small investment I’ve made for my wife & family. Totally worth the price, Go ahead 👍🏻”</p>
+                            <div class="review-author">
+                                <div class="avatar-circle">R</div>
+                                <div class="netbyzz-review-gap"><strong>Ravi Mehra</strong><br><small>Rajkot</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 3 -->
+                    <div class="slider-slide">
+                        <div class="review-card">
+                            <p class="review-text">“I was surprised by how compact yet powerful it is. Perfect for small apartments and big families alike. The sound is barely noticeable.”</p>
+                            <div class="review-author">
+                                <div class="avatar-circle">P</div>
+                                <div class="netbyzz-review-gap"><strong>Pooja Desai</strong><br><small>Mumbai, Maharashtra</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 4 (New) -->
+                    <div class="slider-slide">
+                        <div class="review-card">
+                            <p class="review-text">“The quality of flour is excellent. I grind wheat and bajra regularly. Cleaning is very easy compared to older heavy machines.”</p>
+                            <div class="review-author">
+                                <div class="avatar-circle">S</div>
+                                <div class="netbyzz-review-gap"><strong>Sanjay Gupta</strong><br><small>Surat</small></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Review 5 (New) -->
+                    <div class="slider-slide">
+                        <div class="review-card">
+                            <p class="review-text">“Delivery was fast and packaging was good. It looks very premium in my kitchen. Highly recommended for every Indian home!”</p>
+                            <div class="review-author">
+                                <div class="avatar-circle">A</div>
+                                <div class="netbyzz-review-gap"><strong>Anjali Verma</strong><br><small>Vadodara</small></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="review-card animate-up delay-200">
-                    <p class="review-text">“It’s the best and small investment I’ve made for my wife & family. Totally worth the price, Go ahead 👍🏻”</p>
-                    <div class="review-author">
-                        <div class="avatar-circle">R</div>
-                        <div><strong>Ravi Mehra</strong><br><small>Rajkot</small></div>
-                    </div>
-                </div>
-                <div class="review-card animate-up delay-300">
-                    <p class="review-text">“I was surprised by how compact yet powerful it is. Perfect for small apartments and big families alike.”</p>
-                    <div class="review-author">
-                        <div class="avatar-circle">P</div>
-                        <div><strong>Pooja Desai</strong><br><small>Maharashtra</small></div>
-                    </div>
+
+                <!-- Navigation Dots -->
+                <div class="slider-dots" id="sliderDots">
+                    <!-- Dots will be generated by JS -->
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- FAQ -->
+    <!-- FAQ (UPDATED: Accordion Style) -->
     <section class="section-padding">
         <div class="container" style="max-width: 800px;">
             <div class="section-header">
@@ -739,6 +638,10 @@
                 <div class="faq-q">Q: How long is this offer valid? <i class="fas fa-chevron-down"></i></div>
                 <div class="faq-a">A: This is a limited-time special offer! Hurry before the stock runs out or the offer period ends.</div>
             </div>
+            <div class="faq-item">
+                <div class="faq-q">Q: Is it difficult to install? <i class="fas fa-chevron-down"></i></div>
+                <div class="faq-a">A: Not at all! It is a plug-and-play device. Just plug it in, add grains, and switch it on. No demo installation required.</div>
+            </div>
         </div>
     </section>
 
@@ -752,7 +655,7 @@
                     Enjoy freshness, convenience, and smart savings with the Tendy 400.
                     <br><strong>Limited stock available – Order now!</strong>
                 </p>
-                <button class="btn" style="background: white; color: var(--primary); font-weight: 800;" onclick="window.location.href='tel:+919904589892'">
+                <button class="btn" style="background: white; color: var(--primary); font-weight: 800; width: auto;" onclick="window.location.href='tel:+919904589892'">
                     <i class="fas fa-phone-alt"></i> Call to Order
                 </button>
             </div>
@@ -771,10 +674,85 @@
             </div>
 
             <div style="border-top: 1px solid #333; padding-top: 20px; font-size: 0.9rem; color: #666;">
-                Developed by <a href="https://netbyzz.com" target="_blank" style="color: #888;"><strong>Netbyzz</strong></a>
+                Developed by <a href="https://netbyzz.com" target="_blank" style="color: var(--primary);"><strong>Netbyzz</strong></a>
             </div>
         </div>
     </footer>
 
+    <!-- Javascript Logic -->
+    <script>
+        // --- 1. FAQ Accordion Logic ---
+        document.querySelectorAll('.faq-q').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                
+                // Close other open FAQs (optional, remove this block if you want multiple open)
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+
+                // Toggle current
+                item.classList.toggle('active');
+            });
+        });
+
+        // --- 2. Review Slider Logic ---
+        const track = document.getElementById('sliderTrack');
+        const slides = document.querySelectorAll('.slider-slide');
+        const dotsContainer = document.getElementById('sliderDots');
+        let currentIndex = 0;
+        const totalSlides = slides.length;
+        let slideInterval;
+
+        // Create Dots
+        slides.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if (index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                resetTimer(); // Reset timer on manual click
+            });
+            dotsContainer.appendChild(dot);
+        });
+
+        const dots = document.querySelectorAll('.dot');
+
+        function updateDots(index) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            const translateX = -(currentIndex * 100);
+            track.style.transform = `translateX(${translateX}%)`;
+            updateDots(currentIndex);
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            goToSlide(currentIndex);
+        }
+
+        function startTimer() {
+            // Auto slide every 2 seconds (2000ms)
+            slideInterval = setInterval(nextSlide, 2000);
+        }
+
+        function resetTimer() {
+            clearInterval(slideInterval);
+            startTimer();
+        }
+
+        // Initialize Slider
+        startTimer();
+
+        // Pause on hover (Optional for better UX)
+        track.addEventListener('mouseenter', () => clearInterval(slideInterval));
+        track.addEventListener('mouseleave', startTimer);
+    </script>
 </body>
 </html>
