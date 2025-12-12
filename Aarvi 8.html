@@ -45,7 +45,6 @@
         @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
         @keyframes pulse-btn { 0% { box-shadow: 0 0 0 0 rgba(216, 50, 40, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(216, 50, 40, 0); } 100% { box-shadow: 0 0 0 0 rgba(216, 50, 40, 0); } }
         
-        /* Special Button Animations */
         @keyframes shineStrong { 0% { left: -120px; } 100% { left: 140%; } }
         @keyframes ultraPulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
 
@@ -77,14 +76,14 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 14px 32px;
-            font-size: 1.1rem;
+            padding: 12px 28px;
+            font-size: 1rem;
             font-weight: 600;
             border-radius: 50px;
             cursor: pointer;
             transition: var(--transition);
             border: none;
-            gap: 10px;
+            gap: 8px;
             background: #d83228;
             color: var(--white);
             box-shadow: 0 10px 20px rgba(76, 154, 141, 0.3);
@@ -92,6 +91,7 @@
             animation: ultraPulse 2s infinite ease-in-out;
             position: relative;
             overflow: hidden;
+            white-space: nowrap; 
         }
 
         .netbyzz-special-btn::after {
@@ -105,11 +105,8 @@
             transform: skewX(-20deg);
             animation: shineStrong 1.8s infinite;
         }
-		
-		.netbyzz-review-gap{
-			text-align: left;
-			line-height: 1.3;
-		}
+        
+        .netbyzz-review-gap{ text-align: left; line-height: 1.3; }
         
         .btn-primary {
             background: transparent;
@@ -132,11 +129,35 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 15px 0;
+            padding: 12px 0;
             box-shadow: 0 2px 15px rgba(0,0,0,0.05);
         }
-        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; z-index:1; }
+        
+        .nav-flex { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: nowrap; 
+        }
+        
+        .logo { 
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem; 
+            font-weight: 800; 
+            color: var(--primary); 
+            letter-spacing: -1px; 
+            z-index:1; 
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 45px; 
+            width: auto;
+            display: block;
+        }
+
         .logo span { color: var(--text-dark); }
 
         /* --- Hero Section --- */
@@ -158,14 +179,75 @@
         
         .hero-content h1 { font-size: 2.5rem; line-height: 1.4; margin-bottom: 20px; color: var(--text-dark); }
         .highlight-bg { background: linear-gradient(120deg, var(--primary-light) 0%, rgba(255,255,255,0) 100%); padding: 0 10px; border-radius: 8px; color: var(--primary-dark); }
-        .offer-badge { display: inline-block; background: #ffeaa7; color: #d35400; font-weight: 700; padding: 8px 15px; border-radius: 30px; font-size: 0.9rem; margin-bottom: 20px; border: 2px solid #fdcb6e; }
         
         .price-box { margin: 30px 0; }
-        .current-price { font-size: 4.5rem; font-weight: 800; color: #d83228; line-height: 1; }
+        .current-price { font-size: 4.3rem; font-weight: 800; color: #d83228; line-height: 1; }
         .old-price { font-size: 1.5rem; color: #999; text-decoration: line-through #d83228; margin-left: 10px; }
         
-        .hero-img-container { position: relative; text-align: center; }
-        .hero-img-container img { width: 80%; margin: 0 auto; border-radius: 20px; box-shadow: 20px 20px 60px rgba(0,0,0,0.1), -20px -20px 60px rgba(255,255,255,0.8); animation: float 6s ease-in-out infinite; background: #fff; }
+        /* --- NEW HERO SLIDER STYLES --- */
+        .hero-slider-wrapper {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
+            border-radius: 20px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.1), -20px -20px 60px rgba(255,255,255,0.8);
+            background: #fff;
+            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
+        }
+
+        .hero-slider-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            width: 100%;
+        }
+
+        .hero-slide {
+            min-width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .hero-slide img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        .hero-slide video {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Hero Slider Controls */
+        .hero-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            color: var(--primary);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .hero-nav-btn:hover { background: var(--primary); color: white; }
+        .hero-prev { left: 10px; }
+        .hero-next { right: 10px; }
 
         /* --- Features --- */
         .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 30px; }
@@ -194,134 +276,28 @@
         .trust-item { flex: 1; min-width: 200px; }
         .trust-item i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; opacity: 0.8; }
 
-        /* --- Reviews Slider (UPDATED) --- */
+        /* --- Reviews Slider --- */
         .reviews-section { background: var(--primary-light); }
-        
-        /* Slider Container */
-        .slider-container {
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            overflow: hidden; /* Hides content outside the viewing area */
-            padding: 20px 0 40px;
-        }
-
-        .slider-track {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            /* Width will be calculated by JS based on number of slides */
-        }
-
-        .slider-slide {
-            min-width: 100%; /* Shows one slide at a time */
-            padding: 0 15px; /* Spacing between slides */
-            box-sizing: border-box;
-        }
-
-        .review-card {
-            background: white;
-            padding: 40px 30px 30px;
-            border-radius: 20px;
-            box-shadow: var(--shadow-sm);
-            position: relative;
-            text-align: center;
-            height: 100%;
-        }
-
-        .review-card::before {
-            content: '\201C';
-            position: absolute;
-            top: 0px;
-            left: 20px;
-            font-size: 5rem;
-            color: var(--primary);
-            opacity: 0.2;
-            font-family: serif;
-        }
-
+        .slider-container { width: 100%; max-width: 900px; margin: 0 auto; position: relative; overflow: hidden; padding: 20px 0 40px; }
+        .slider-track { display: flex; transition: transform 0.5s ease-in-out; }
+        .slider-slide { min-width: 100%; padding: 0 15px; box-sizing: border-box; }
+        .review-card { background: white; padding: 40px 30px 30px; border-radius: 20px; box-shadow: var(--shadow-sm); position: relative; text-align: center; height: 100%; }
+        .review-card::before { content: '\201C'; position: absolute; top: 0px; left: 20px; font-size: 5rem; color: var(--primary); opacity: 0.2; font-family: serif; }
         .review-text { padding:0 20px; font-style: italic; color: #555; margin-bottom: 20px; font-size: 1.1rem; }
         .review-author { display: flex; align-items: center; justify-content: center; gap: 10px; margin-top: 20px; }
         .avatar-circle { width: 45px; height: 45px; background: var(--primary); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem; }
+        .slider-dots { display: flex; justify-content: center; margin-top: 20px; gap: 10px; }
+        .dot { width: 12px; height: 12px; background: #cbd5e1; border-radius: 50%; cursor: pointer; transition: all 0.3s; }
+        .dot.active { background: var(--primary); width: 30px; border-radius: 10px; }
 
-        /* Slider Controls */
-        .slider-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 20px;
-            gap: 10px;
-        }
-
-        .dot {
-            width: 12px;
-            height: 12px;
-            background: #cbd5e1;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .dot.active {
-            background: var(--primary);
-            width: 30px;
-            border-radius: 10px;
-        }
-
-        /* --- FAQ (Accordion Style) --- */
-        .faq-item {
-            background: white;
-            border: 1px solid #eee;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            overflow: hidden; /* Important for accordion transition */
-            transition: all 0.3s ease;
-        }
-
-        .faq-q {
-            font-weight: 700;
-            color: var(--text-dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            cursor: pointer;
-            background: #fff;
-            position: relative;
-            z-index: 2;
-        }
-
-        .faq-q i {
-            transition: transform 0.3s ease;
-            color: var(--primary);
-        }
-
-        /* The hidden answer */
-        .faq-a {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.4s ease;
-            background: #fafafa;
-            padding: 0 20px; /* Initially 0 top/bottom padding */
-            color: var(--text-gray);
-            font-size: 0.95rem;
-            border-top: 1px solid transparent;
-        }
-
-        /* Active State for FAQ */
-        .faq-item.active {
-            border-color: var(--primary);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .faq-item.active .faq-q i {
-            transform: rotate(180deg);
-        }
-
-        .faq-item.active .faq-a {
-            max-height: 200px; /* Arbitrary large height to allow content */
-            padding: 15px 20px 20px;
-            border-top: 1px solid #eee;
-        }
+        /* --- FAQ --- */
+        .faq-item { background: white; border: 1px solid #eee; border-radius: 10px; margin-bottom: 15px; overflow: hidden; transition: all 0.3s ease; }
+        .faq-q { font-weight: 700; color: var(--text-dark); display: flex; justify-content: space-between; align-items: center; padding: 20px; cursor: pointer; background: #fff; position: relative; z-index: 2; }
+        .faq-q i { transition: transform 0.3s ease; color: var(--primary); }
+        .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; background: #fafafa; padding: 0 20px; color: var(--text-gray); font-size: 0.95rem; border-top: 1px solid transparent; }
+        .faq-item.active { border-color: var(--primary); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+        .faq-item.active .faq-q i { transform: rotate(180deg); }
+        .faq-item.active .faq-a { max-height: 200px; padding: 15px 20px 20px; border-top: 1px solid #eee; }
 
         /* --- Footer --- */
         footer { background: #1a1a1a; color: #eee; padding-top: 60px; padding-bottom: 20px; text-align: center; }
@@ -329,63 +305,65 @@
         .footer-links a { color: var(--primary); font-weight: bold; }
         .dealer-badge { background: #333; border: 1px solid #444; padding: 20px; border-radius: 10px; margin: 30px auto; max-width: 600px; }
 
-        /* --- RESPONSIVE CSS (Mobile & Tablet) --- */
+        /* --- RESPONSIVE CSS --- */
         @media (max-width: 968px) {
             .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
             .hero-content { order: 2; padding: 0 10px; }
-            .hero-img-container { order: 1; margin-bottom: 0px; }
+            .hero-slider-wrapper { order: 1; margin-bottom: 0px; width: 90%; }
             .hero h1 { font-size: 2rem; }
             .section-header h2 { font-size: 2rem; }
             .specs-card { padding: 25px; }
             .netbyzz-special-fontsize { font-size: 0.9rem; }
-            
-            /* Button fix for tablet */
-            .netbyzz-special-btn { padding: 12px 24px; font-size: 1rem; }
         }
 
         @media (max-width: 576px) {
-            /* General text scaling */
             html { font-size: 15px; }
             .section-padding { padding: 50px 0; }
             
-            /* Header */
-            .logo { font-size: 1.5rem; }
+            /* --- UPDATED HEADER RESPONSIVE --- */
+            header { padding: 10px 0; }
+            .logo { font-size: 1.4rem; gap: 6px; }
+            .logo img { height: 32px; } 
+            
             .netbyzz-special-btn { 
-                padding: 10px 18px; 
-                font-size: 0.9rem; 
+                padding: 8px 16px; 
+                font-size: 0.85rem; 
                 border-radius: 30px;
+                gap: 5px;
             }
-            .netbyzz-special-btn i { display: none; } /* Hide icon on very small screens to save space */
+            .netbyzz-special-btn i { font-size: 0.8rem; }
             
             /* Hero */
             .hero h1 { font-size: 1.8rem; margin-bottom: 15px; }
-            .current-price { font-size: 4.8rem; }
+            .current-price { font-size: 4.3rem; }
             .old-price { font-size: 1.2rem; display: block; margin: 0; margin-bottom: 10px; }
             .btn-primary { width: 100%; margin-top: 10px; }
-            .hero-img-container img { width: 90%; }
             
-            /* Specs Table */
+            /* Specs & Footer */
             .specs-table th { width: 45%; font-size: 0.9rem; }
             .specs-table td { font-size: 1rem; }
             .specs-card { padding: 20px 15px; }
-
-            /* Trust Icons */
             .trust-grid { flex-direction: column; gap: 30px; }
-            
-            /* Footer CTA */
             .footer-cta-box { margin: -80px 15px 40px; padding: 30px 20px; }
             .footer-cta-box h3 { font-size: 1.6rem; }
             .dealer-badge { margin: 30px 15px; }
         }
+		.netbyzz-tendy-Logo{
+			color: #3a7a6f !IMPORTANT;
+		}
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- HEADER -->
     <header>
         <div class="container nav-flex">
-            <div class="logo">Aarvi <span>Tendy</span></div>
-            <!-- Wrapped in div to maintain button style structure -->
+            <!-- Logo Section -->
+            <a href="#" class="logo">
+                <img src="logo.png" alt="Aarvi Tendy Logo"/>
+            </a>
+            
+            <!-- Button Section -->
             <a href="#buy" class="netbyzz-special-btn">
                 Buy Now <i class="fas fa-shopping-cart"></i>
             </a>
@@ -398,14 +376,14 @@
         <div class="shape shape-2"></div>
         
         <div class="container hero-grid">
-            <div class="hero-content animate-up">
-                <div class="offer-badge">
-                    <i class="fas fa-fire"></i> Limited Time Mega-Savings
-                </div>
+			<div class="hero-content animate-up">
+				<h1 style="line-height: 0.5;">
+					<span class="netbyzz-tendy-Logo">Tendy</span><span style="color:var(--text-dark)"><sup>&reg;</sup> 400</span>
+				</h1>
                 <h1>India's First <br><span class="highlight-bg">Smallest & Light-Weight</span><br> Flour Mill!</h1>
                 
                 <p style="margin: 20px 0; color: var(--text-gray); font-size: 1.1rem;">
-                    Invest in <strong>health, freshness, and huge savings</strong> today! The Aarvi Tendy 400 is the perfect smart upgrade for every modern kitchen.
+                    Invest in <strong>health, freshness, and huge savings</strong> today! The Aarvi <b>Tendy 400</b> is the perfect smart upgrade for every modern kitchen.
                 </p>
 
                 <div class="price-box">
@@ -413,7 +391,7 @@
                     <span class="old-price">₹15,199</span>
                 </div>
 
-                <div style="display: flex; flex-direction: column; align-items: flex-start; gap: 10px;">
+                <div>
                     <a href="#buy" class="btn btn-primary btn-pulse">
                         Direct Buy Now <i class="fas fa-arrow-right"></i>
                     </a>
@@ -421,10 +399,42 @@
                 <p style="margin-top: 15px; font-size: 0.8rem; color: #888;">Limited Stock! Delivery in 10-15 days.</p>
             </div>
 
-            <div class="hero-img-container animate-up delay-200">
-                <!-- IMPORTANT: Ensure 1.png exists in the same folder -->
-                <img src="1.png" alt="Aarvi Tendy 400 Flour Mill">
+            <!-- HERO SLIDER START (Images + Video) -->
+            <div class="hero-slider-wrapper animate-up delay-200">
+                <div class="hero-slider-track" id="heroTrack">
+                    
+                    <!-- Slide 1: Image -->
+                    <div class="hero-slide">
+                        <img src="1.png" alt="Aarvi Tendy 400 View 1">
+                    </div>
+
+                    <!-- Slide 2: Image -->
+                    <div class="hero-slide">
+                        <img src="2.png" alt="Aarvi Tendy 400 View 2">
+                    </div>
+                    
+                    <!-- Slide 3: Image -->
+                    <div class="hero-slide">
+                        <img src="3.png" alt="Aarvi Tendy 400 View 3">
+                    </div>
+
+                    <!-- Slide 4: Video (Last Slide) -->
+                    <div class="hero-slide">
+                        <!-- Video with controls and muted for autoplay support -->
+                        <video id="heroVideo" controls muted playsinline poster="1.png">
+                            <source src="video.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+
+                </div>
+                
+                <!-- Navigation Arrows -->
+                <button class="hero-nav-btn hero-prev" id="heroPrev"><i class="fas fa-chevron-left"></i></button>
+                <button class="hero-nav-btn hero-next" id="heroNext"><i class="fas fa-chevron-right"></i></button>
             </div>
+            <!-- HERO SLIDER END -->
+
         </div>
     </section>
 
@@ -549,7 +559,7 @@
         </div>
     </section>
 
-    <!-- Reviews (UPDATED: Slider with 5 Reviews) -->
+    <!-- Reviews Section -->
     <section class="section-padding reviews-section">
         <div class="container">
             <div class="section-header">
@@ -588,7 +598,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Review 4 (New) -->
+                    <!-- Review 4 -->
                     <div class="slider-slide">
                         <div class="review-card">
                             <p class="review-text">“The quality of flour is excellent. I grind wheat and bajra regularly. Cleaning is very easy compared to older heavy machines.”</p>
@@ -598,7 +608,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Review 5 (New) -->
+                    <!-- Review 5 -->
                     <div class="slider-slide">
                         <div class="review-card">
                             <p class="review-text">“Delivery was fast and packaging was good. It looks very premium in my kitchen. Highly recommended for every Indian home!”</p>
@@ -611,15 +621,12 @@
                 </div>
 
                 <!-- Navigation Dots -->
-                <div class="slider-dots" id="sliderDots">
-                    <!-- Dots will be generated by JS -->
-                </div>
+                <div class="slider-dots" id="sliderDots"></div>
             </div>
-
         </div>
     </section>
 
-    <!-- FAQ (UPDATED: Accordion Style) -->
+    <!-- FAQ -->
     <section class="section-padding">
         <div class="container" style="max-width: 800px;">
             <div class="section-header">
@@ -674,7 +681,7 @@
             </div>
 
             <div style="border-top: 1px solid #333; padding-top: 20px; font-size: 0.9rem; color: #666;">
-                Developed by <a href="https://netbyzz.com" target="_blank" style="color: var(--primary);"><strong>Netbyzz</strong></a>
+                Developed by <a href="https://netbyzz.com" target="_blank" style="color: #1253c8;"><strong>Netbyzz</strong></a>
             </div>
         </div>
     </footer>
@@ -686,7 +693,7 @@
             question.addEventListener('click', () => {
                 const item = question.parentElement;
                 
-                // Close other open FAQs (optional, remove this block if you want multiple open)
+                // Close other open FAQs
                 document.querySelectorAll('.faq-item').forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
@@ -698,7 +705,72 @@
             });
         });
 
-        // --- 2. Review Slider Logic ---
+        // --- 2. HERO SLIDER LOGIC (Auto Slide + Video Stop) ---
+        const heroTrack = document.getElementById('heroTrack');
+        const heroSlides = document.querySelectorAll('.hero-slide');
+        const heroPrev = document.getElementById('heroPrev');
+        const heroNext = document.getElementById('heroNext');
+        const heroVideo = document.getElementById('heroVideo');
+        
+        let heroIndex = 0;
+        const heroTotal = heroSlides.length;
+        let heroInterval;
+
+        function updateHeroSlider() {
+            const translateX = -(heroIndex * 100);
+            heroTrack.style.transform = `translateX(${translateX}%)`;
+            
+            // CHECK: Is current slide the last slide (Video)?
+            if (heroIndex === heroTotal - 1) {
+                // STOP TIMER
+                stopHeroTimer();
+                
+                // PLAY VIDEO
+                if(heroVideo) {
+                    heroVideo.play().catch(e => console.log("Autoplay blocked: ", e));
+                }
+            } else {
+                // Not the video slide
+                if(heroVideo) {
+                    heroVideo.pause();
+                    heroVideo.currentTime = 0; // Reset video
+                }
+                
+                // Ensure timer is running for images
+                startHeroTimer();
+            }
+        }
+
+        heroNext.addEventListener('click', () => {
+            heroIndex = (heroIndex + 1) % heroTotal;
+            updateHeroSlider();
+        });
+
+        heroPrev.addEventListener('click', () => {
+            heroIndex = (heroIndex - 1 + heroTotal) % heroTotal;
+            updateHeroSlider();
+        });
+        
+        // Timer Logic
+        function startHeroTimer() {
+            // Clear existing to avoid multiples
+            clearInterval(heroInterval);
+            // Auto slide every 3 seconds (3000ms)
+            heroInterval = setInterval(() => {
+                heroIndex = (heroIndex + 1) % heroTotal;
+                updateHeroSlider();
+            }, 3000);
+        }
+
+        function stopHeroTimer() {
+            clearInterval(heroInterval);
+        }
+
+        // Initialize Hero Slider
+        startHeroTimer();
+
+
+        // --- 3. Review Slider Logic ---
         const track = document.getElementById('sliderTrack');
         const slides = document.querySelectorAll('.slider-slide');
         const dotsContainer = document.getElementById('sliderDots');
@@ -738,7 +810,6 @@
         }
 
         function startTimer() {
-            // Auto slide every 2 seconds (2000ms)
             slideInterval = setInterval(nextSlide, 2000);
         }
 
@@ -747,10 +818,9 @@
             startTimer();
         }
 
-        // Initialize Slider
+        // Initialize Review Slider
         startTimer();
 
-        // Pause on hover (Optional for better UX)
         track.addEventListener('mouseenter', () => clearInterval(slideInterval));
         track.addEventListener('mouseleave', startTimer);
     </script>
